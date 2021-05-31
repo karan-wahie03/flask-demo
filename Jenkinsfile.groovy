@@ -40,8 +40,9 @@ try {
     }
 
   stage('Build Image') {
-
-    }
+    def customImage = docker.build("karanwahie/flask-demo:${env.BUILD_ID}")
+    customImage.push()
+  }
 
 stage("Deploy Image") {
 
