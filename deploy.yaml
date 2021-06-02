@@ -36,4 +36,4 @@
     - protocol: TCP
       port: 80
       targetPort: 4000
-    type: NodePort
+    type: loadbalancer
