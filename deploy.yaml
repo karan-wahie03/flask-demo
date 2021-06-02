@@ -30,10 +30,12 @@
     name: flask-demo
     namespace: flask
   spec:
+    loadBalancerSourceRanges:
+    - 0.0.0.0/0
     selector:
       app: flask-demo
     ports:
     - protocol: TCP
       port: 80
       targetPort: 4000
-    type: loadbalancer
+    type: LoadBalancer
