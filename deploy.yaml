@@ -1,0 +1,39 @@
+---
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    creationTimestamp: null
+    labels:
+      app: flask-demo
+    name: flask-demo
+    namespace: flask
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: flask-demo
+    strategy: {}
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: flask-demo
+      spec:
+        containers:
+        - image: karanwahie/flask-demo:imagetag
+          name: flask-demo
+          resources: {}
+---
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: flask-demo
+    namespace: flask
+  spec:
+    selector:
+      app: flask-demo
+    ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 4000
+    type: NodePort
